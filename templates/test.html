@@ -1,0 +1,22 @@
+<form action="" method="post">
+    {% csrf_token %}
+    <p>
+        <label for="valid_code">验证码：</label>
+    </p>
+    <p>
+        <input type="text" id="valid_code" name="valid_code">
+        <img src="/valid_code/" alt="validPic" width="150" height="30"><a href="#" class="refresh">刷新</a>
+    </p>
+    <p>
+        <button type="submit">验证</button>
+    </p>
+</form>
+
+<script>
+    var refresh = document.getElementsByClassName('refresh')[0];
+    var validPic = document.getElementsByTagName('img')[0];
+    refresh.onclick = function () {
+        validPic.src += "?"; //利用img标签的特性，刷新验证码
+    }
+</script>
+
